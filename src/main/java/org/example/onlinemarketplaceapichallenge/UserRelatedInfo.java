@@ -11,8 +11,10 @@ import java.util.List;
 
 public class UserRelatedInfo implements UserDetails {
 
-    private Users user;
-    public UserRelatedInfo(String username) {
+     private Users user;
+
+    public UserRelatedInfo(Users user) {
+        this.user = user;
     }
 
     @Override

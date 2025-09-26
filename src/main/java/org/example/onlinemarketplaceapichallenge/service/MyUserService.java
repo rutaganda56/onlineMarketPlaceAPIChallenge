@@ -19,6 +19,6 @@ public class MyUserService implements UserDetailsService {
         if(user==null){
             System.out.println("user not found");
         }
-        return new UserRelatedInfo(username);
+        return new UserRelatedInfo(user);
     }
 }

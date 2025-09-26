@@ -1,6 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.example.onlinemarketplaceapichallenge.Dto.UserDto;
 import org.example.onlinemarketplaceapichallenge.Dto.UserResponseDto;
 import org.example.onlinemarketplaceapichallenge.model.Users;
@@ -21,12 +22,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public String login(Users user) {
+    public String login(@Valid @RequestBody Users user) {
         return userService.login(user);
     }
 
     @PostMapping("/register")
-    public UserResponseDto register(@RequestBody UserDto dto) {
+    public UserResponseDto register(@Valid @RequestBody UserDto dto) {
         return userService.register(dto);
     }
     @GetMapping("/fetchAllUsers")

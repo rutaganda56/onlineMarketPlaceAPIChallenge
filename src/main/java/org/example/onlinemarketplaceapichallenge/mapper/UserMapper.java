@@ -3,7 +3,9 @@ package org.example.onlinemarketplaceapichallenge.mapper;
 import org.example.onlinemarketplaceapichallenge.Dto.UserDto;
 import org.example.onlinemarketplaceapichallenge.Dto.UserResponseDto;
 import org.example.onlinemarketplaceapichallenge.model.Users;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserMapper {
     public Users toUserDto(UserDto userDto) {
        Users users = new Users();
@@ -11,6 +13,8 @@ public class UserMapper {
        users.setPassword(userDto.password());
        users.setEmail(userDto.email());
        users.setPhone(userDto.phone());
+       users.setFullName(userDto.fullName());
+       users.setRole(userDto.role());
        return users;
     }
     public UserResponseDto toUserResponseDto(Users users) {

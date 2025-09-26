@@ -17,12 +17,16 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
+    @Autowired
+    private JWTService jwtService;
+    @Autowired
     private UserMapper userMapper;
     @Autowired
     private UserRepository userRepository;
     private BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(12);
-    public String login(Users user) {
-        return "login" ;
+
+    public String login(@RequestBody Users user) {
+        return jwtService.generateToken(user.getUsername());
     }
     public UserResponseDto register(@RequestBody UserDto dto) {
         var user=userMapper.toUserDto(dto);
