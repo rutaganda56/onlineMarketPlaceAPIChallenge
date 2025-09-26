@@ -1,5 +1,6 @@
 package org.example.onlinemarketplaceapichallenge.service;
 
+import org.example.onlinemarketplaceapichallenge.UserRelatedInfo;
 import org.example.onlinemarketplaceapichallenge.model.Users;
 import org.example.onlinemarketplaceapichallenge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class MyUserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user=userRepo.findByUsername(username);
-        return ;
+        if(user==null){
+            System.out.println("user not found");
+        }
+        return new UserRelatedInfo(username);
     }
 }

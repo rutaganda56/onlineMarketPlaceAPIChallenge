@@ -12,10 +12,39 @@ public class Users {
     @GeneratedValue
     @Column(name = "user_id")
     private int id;
+    @Column(name = "full_name")
+    private String fullName;
     private String username;
     private String password;
     @Column(name = "USER_ROLE")
     private String role;
+    private String email;
+    @Column(name = "phone_number")
+    private String phone;
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getId() {
         return id;
@@ -56,9 +85,12 @@ public class Users {
     public String toString() {
         return "Users{" +
                 "id=" + id +
+                ", fullName='" + fullName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }
