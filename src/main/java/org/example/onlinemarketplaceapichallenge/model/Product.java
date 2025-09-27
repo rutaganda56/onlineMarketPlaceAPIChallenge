@@ -1,6 +1,10 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Product {
@@ -14,10 +18,21 @@ public class Product {
     private String price;
     @Column(name = "STATUS")
     private String status;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
+    @JsonBackReference
     private Category category;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "STORE_ID")
+    @JsonBackReference
     private Store store;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Order> order;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Review> review;
 
 
 

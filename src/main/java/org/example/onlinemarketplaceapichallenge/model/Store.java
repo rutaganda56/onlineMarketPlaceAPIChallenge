@@ -1,7 +1,11 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +22,14 @@ public class Store {
     @Column(name = "CONTACT_NUMBER")
     private String contact;
     @Column(name = "CREATION_DATE")
-    private Date creationDate;
-    @OneToOne()
+    @CreationTimestamp
+    private LocalDateTime creationDate;
+    @OneToOne
+    @JoinColumn(name = "USER_ID")
+    @JsonBackReference
     private Users user;
-    @OneToMany
+    @OneToMany(mappedBy = "store",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Product> products;
 
     public int getStoreId() {
@@ -56,13 +64,6 @@ public class Store {
         this.contact = contact;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
 
     public Store() {
     }

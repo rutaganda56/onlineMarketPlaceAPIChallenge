@@ -1,5 +1,6 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,9 +13,13 @@ public class Review {
     private int id;
     private int rating;
     private String comment;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private Users user;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @JsonBackReference
     private Product product;
 
 

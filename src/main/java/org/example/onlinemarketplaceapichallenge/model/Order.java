@@ -1,5 +1,6 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -16,9 +17,13 @@ public class Order {
     private Date orderDate;
     private String status;
     @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private Users user;
-    @OneToMany
-    private List<Product> product;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @JsonBackReference
+    private Product product;
 
 
 

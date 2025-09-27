@@ -1,7 +1,10 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+
+import java.util.List;
 
 @Entity
 public class Users {
@@ -18,8 +21,14 @@ public class Users {
     private String email;
     @Column(name = "phone_number")
     private String phone;
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Store store;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Order> order;
+    @OneToMany(mappedBy = "user")
+    private List<Review> review;
 
     public String getFullName() {
         return fullName;
