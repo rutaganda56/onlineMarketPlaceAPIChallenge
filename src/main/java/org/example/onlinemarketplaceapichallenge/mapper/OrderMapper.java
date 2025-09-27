@@ -1,7 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.mapper;
 
-import org.example.onlinemarketplaceapichallenge.Dto.OrderDto;
-import org.example.onlinemarketplaceapichallenge.Dto.OrderResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.OrderDto;
+import org.example.onlinemarketplaceapichallenge.dto.OrderResponseDto;
 import org.example.onlinemarketplaceapichallenge.model.Orders;
 import org.example.onlinemarketplaceapichallenge.model.Product;
 import org.example.onlinemarketplaceapichallenge.model.Users;

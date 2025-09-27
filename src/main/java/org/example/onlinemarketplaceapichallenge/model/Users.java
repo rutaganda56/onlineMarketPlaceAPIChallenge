@@ -23,12 +23,13 @@ public class Users {
     @Column(name = "phone_number")
     private String phone;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("users-stores")
     private Store store;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("users-orders")
     private List<Orders> order;
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference("users-reviews")
     private List<Review> review;
 
 }

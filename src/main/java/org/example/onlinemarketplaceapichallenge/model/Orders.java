@@ -21,10 +21,10 @@ public class Orders {
     private String status;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonBackReference
+    @JsonBackReference("users-orders")
     private Users user;
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @JsonBackReference
+    @JsonBackReference("products-orders")
     private Product product;
 }

@@ -17,11 +17,11 @@ public class Review {
     private String comment;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonBackReference
+    @JsonBackReference("users-reviews")
     private Users user;
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @JsonBackReference
+    @JsonBackReference("reviews-products")
     private Product product;
 
 

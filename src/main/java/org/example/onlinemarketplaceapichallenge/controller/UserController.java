@@ -1,9 +1,8 @@
 package org.example.onlinemarketplaceapichallenge.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import org.example.onlinemarketplaceapichallenge.Dto.UserDto;
-import org.example.onlinemarketplaceapichallenge.Dto.UserResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.UserDto;
+import org.example.onlinemarketplaceapichallenge.dto.UserResponseDto;
 import org.example.onlinemarketplaceapichallenge.model.Users;
 import org.example.onlinemarketplaceapichallenge.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

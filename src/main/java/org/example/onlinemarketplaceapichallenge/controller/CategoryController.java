@@ -1,8 +1,8 @@
 package org.example.onlinemarketplaceapichallenge.controller;
 
 import jakarta.validation.Valid;
-import org.example.onlinemarketplaceapichallenge.Dto.CategoryDto;
-import org.example.onlinemarketplaceapichallenge.Dto.CategoryResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.CategoryDto;
+import org.example.onlinemarketplaceapichallenge.dto.CategoryResponseDto;
 import org.example.onlinemarketplaceapichallenge.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

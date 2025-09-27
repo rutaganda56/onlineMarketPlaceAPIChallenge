@@ -1,7 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.mapper;
 
-import org.example.onlinemarketplaceapichallenge.Dto.UserDto;
-import org.example.onlinemarketplaceapichallenge.Dto.UserResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.UserDto;
+import org.example.onlinemarketplaceapichallenge.dto.UserResponseDto;
 import org.example.onlinemarketplaceapichallenge.model.Users;
 import org.springframework.stereotype.Service;
 

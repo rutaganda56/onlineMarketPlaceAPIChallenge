@@ -1,7 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.controller;
 
-import org.example.onlinemarketplaceapichallenge.Dto.OrderDto;
-import org.example.onlinemarketplaceapichallenge.Dto.OrderResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.OrderDto;
+import org.example.onlinemarketplaceapichallenge.dto.OrderResponseDto;
 import org.example.onlinemarketplaceapichallenge.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

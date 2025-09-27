@@ -1,8 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.service;
 
-import jakarta.servlet.http.HttpServletRequest;
-import org.example.onlinemarketplaceapichallenge.Dto.UserDto;
-import org.example.onlinemarketplaceapichallenge.Dto.UserResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.UserDto;
+import org.example.onlinemarketplaceapichallenge.dto.UserResponseDto;
 import org.example.onlinemarketplaceapichallenge.mapper.UserMapper;
 import org.example.onlinemarketplaceapichallenge.model.Users;
 import org.example.onlinemarketplaceapichallenge.repository.UserRepository;
@@ -12,9 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +30,9 @@ public class UserService {
     public String login( Users user) {
         Authentication authentication=authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         if(authentication.isAuthenticated()) {
+            System.out.println("success");
             return jwtService.generateToken(user.getUsername());
+
         }
         return "failed to authenticate";
     }

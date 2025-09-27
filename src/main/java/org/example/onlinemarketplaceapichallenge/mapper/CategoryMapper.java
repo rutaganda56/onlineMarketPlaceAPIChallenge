@@ -1,7 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.mapper;
 
-import org.example.onlinemarketplaceapichallenge.Dto.CategoryDto;
-import org.example.onlinemarketplaceapichallenge.Dto.CategoryResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.CategoryDto;
+import org.example.onlinemarketplaceapichallenge.dto.CategoryResponseDto;
 import org.example.onlinemarketplaceapichallenge.model.Category;
 import org.springframework.stereotype.Service;
 

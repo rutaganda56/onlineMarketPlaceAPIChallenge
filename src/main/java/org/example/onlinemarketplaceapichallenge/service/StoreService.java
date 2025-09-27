@@ -1,7 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.service;
 
-import org.example.onlinemarketplaceapichallenge.Dto.StoreDto;
-import org.example.onlinemarketplaceapichallenge.Dto.StoreResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.StoreDto;
+import org.example.onlinemarketplaceapichallenge.dto.StoreResponseDto;
 import org.example.onlinemarketplaceapichallenge.mapper.StoreMapper;
 import org.example.onlinemarketplaceapichallenge.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -22,18 +22,18 @@ public class Product {
     private String status;
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
-    @JsonBackReference
+    @JsonBackReference("categories-products")
     private Category category;
     @ManyToOne
     @JoinColumn(name = "STORE_ID")
-    @JsonBackReference
+    @JsonBackReference("stores-products")
     private Store store;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("products-orders")
     private List<Orders> order;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("reviews-products")
     private List<Review> review;
 
 

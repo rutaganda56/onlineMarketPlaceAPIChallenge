@@ -1,10 +1,8 @@
 package org.example.onlinemarketplaceapichallenge.service;
 
-import org.example.onlinemarketplaceapichallenge.Dto.ReviewDto;
-import org.example.onlinemarketplaceapichallenge.Dto.ReviewResponseDto;
+import org.example.onlinemarketplaceapichallenge.dto.ReviewDto;
+import org.example.onlinemarketplaceapichallenge.dto.ReviewResponseDto;
 import org.example.onlinemarketplaceapichallenge.mapper.ReviewMapper;
-import org.example.onlinemarketplaceapichallenge.mapper.UserMapper;
-import org.example.onlinemarketplaceapichallenge.model.Review;
 import org.example.onlinemarketplaceapichallenge.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

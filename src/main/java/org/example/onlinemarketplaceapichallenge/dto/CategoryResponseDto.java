@@ -1,4 +1,4 @@
-package org.example.onlinemarketplaceapichallenge.Dto;
+package org.example.onlinemarketplaceapichallenge.dto;
 
 public record CategoryResponseDto(
         String name

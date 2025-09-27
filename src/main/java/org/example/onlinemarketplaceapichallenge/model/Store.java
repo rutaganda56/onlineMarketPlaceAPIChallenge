@@ -28,10 +28,10 @@ public class Store {
     private LocalDateTime creationDate;
     @OneToOne
     @JoinColumn(name = "USER_ID")
-    @JsonBackReference
+    @JsonBackReference("users-stores")
     private Users user;
     @OneToMany(mappedBy = "store",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("stores-products")
     private List<Product> products;
 
 }
