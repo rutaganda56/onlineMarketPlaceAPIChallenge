@@ -24,7 +24,7 @@ public class OrderMapper {
         order.setProduct(product);
         return order;
     }
-    public OrderResponseDto transformToDto(Order order) {
+    public OrderResponseDto transformToResponseDto(Order order) {
         return new OrderResponseDto(order.getOrderId(), order.getStatus());
     }
 }
