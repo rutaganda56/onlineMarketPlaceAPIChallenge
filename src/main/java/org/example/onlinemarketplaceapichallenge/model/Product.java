@@ -3,10 +3,12 @@ package org.example.onlinemarketplaceapichallenge.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
+@Data
 public class Product {
     @Id
     @GeneratedValue

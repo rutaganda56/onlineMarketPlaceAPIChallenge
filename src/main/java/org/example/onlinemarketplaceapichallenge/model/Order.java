@@ -2,11 +2,13 @@ package org.example.onlinemarketplaceapichallenge.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Data
 public class Order {
     @Id
     @GeneratedValue

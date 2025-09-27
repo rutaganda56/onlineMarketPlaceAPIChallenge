@@ -3,6 +3,7 @@ package org.example.onlinemarketplaceapichallenge.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Data
 public class Store {
     @Id
     @GeneratedValue
@@ -32,50 +34,4 @@ public class Store {
     @JsonManagedReference
     private List<Product> products;
 
-    public int getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(int storeId) {
-        this.storeId = storeId;
-    }
-
-    public String getStoreName() {
-        return storeName;
-    }
-
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
-
-    public String getStoreAddress() {
-        return storeAddress;
-    }
-
-    public void setStoreAddress(String storeAddress) {
-        this.storeAddress = storeAddress;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-
-    public Store() {
-    }
-
-    @Override
-    public String toString() {
-        return "Store{" +
-                "storeId=" + storeId +
-                ", storeName='" + storeName + '\'' +
-                ", storeAddress='" + storeAddress + '\'' +
-                ", contact='" + contact + '\'' +
-                ", creationDate=" + creationDate +
-                '}';
-    }
 }
