@@ -1,4 +1,7 @@
 package org.example.onlinemarketplaceapichallenge.Dto;
 
-public record ReviewResponseDto() {
+public record ReviewResponseDto(
+   int rating,
+   String comment
+) {
 }

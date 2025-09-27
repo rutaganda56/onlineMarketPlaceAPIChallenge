@@ -3,7 +3,9 @@ package org.example.onlinemarketplaceapichallenge.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +18,8 @@ public class Order {
     private int quantity;
     private long price;
     private String shippingMethod;
-    private Date orderDate;
+    @CreationTimestamp
+    private LocalDateTime orderDate;
     private String status;
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -1,4 +1,6 @@
 package org.example.onlinemarketplaceapichallenge.Dto;
 
-public record StoreResponseDto() {
+public record StoreResponseDto(
+        String storeName
+) {
 }
