@@ -18,7 +18,7 @@ public class Users {
     private String email;
     @Column(name = "phone_number")
     private String phone;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user")
     private Store store;
 
     public String getFullName() {

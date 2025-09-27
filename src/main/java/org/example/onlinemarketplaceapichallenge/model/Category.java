@@ -2,6 +2,8 @@ package org.example.onlinemarketplaceapichallenge.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Category {
     @Id
@@ -10,6 +12,6 @@ public class Category {
     private int id;
     @Column(name = "CATEGORY_NAME")
     private String name;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Product products;
+    @OneToMany
+    private List<Product> products;
 }

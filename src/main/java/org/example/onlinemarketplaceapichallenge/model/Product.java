@@ -14,7 +14,7 @@ public class Product {
     private String price;
     @Column(name = "STATUS")
     private String status;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
     @ManyToOne(cascade = CascadeType.ALL)
     private Store store;

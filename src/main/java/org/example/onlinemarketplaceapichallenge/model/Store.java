@@ -23,6 +23,7 @@ public class Store {
     private Users user;
     @OneToMany
     private List<Product> products;
+
     public int getStoreId() {
         return storeId;
     }

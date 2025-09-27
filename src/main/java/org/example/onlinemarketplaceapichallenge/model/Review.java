@@ -1,9 +1,8 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Review {
@@ -13,5 +12,10 @@ public class Review {
     private int id;
     private int rating;
     private String comment;
+    @OneToOne
+    private Users user;
+    @OneToOne
+    private Product product;
+
 
 }
