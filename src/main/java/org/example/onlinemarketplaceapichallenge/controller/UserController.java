@@ -27,12 +27,21 @@ public class UserController {
     }
 
     @PostMapping("/register")
+    @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDto register(@Valid @RequestBody UserDto dto) {
         return userService.register(dto);
     }
     @GetMapping("/fetchAllUsers")
     public List<UserResponseDto> getAllUsers() {
         return userService.getAllUsers();
+    }
+    @PutMapping("/manage_profile/{id}")
+    public Users updateProfile(@PathVariable("id") int id, @Valid @RequestBody Users users){
+        return userService.updateUser(id, users);
+    }
+    @DeleteMapping("/delete_user/{id}")
+    public void deleteUser(@PathVariable("id") int id) {
+         userService.deleteUser(id);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

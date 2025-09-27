@@ -9,6 +9,7 @@ import org.example.onlinemarketplaceapichallenge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -25,10 +26,10 @@ public class UserService {
     private UserRepository userRepository;
     private BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(12);
 
-    public String login(@RequestBody Users user) {
+    public String login( Users user) {
         return jwtService.generateToken(user.getUsername());
     }
-    public UserResponseDto register(@RequestBody UserDto dto) {
+    public UserResponseDto register( UserDto dto) {
         var user=userMapper.toUserDto(dto);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         var savedUser=userRepository.save(user);
@@ -36,5 +37,19 @@ public class UserService {
     }
     public List<UserResponseDto> getAllUsers() {
         return userRepository.findAll().stream().map(userMapper::toUserResponseDto).collect(Collectors.toList());
+    }
+    public Users updateUser(int id, Users user) {
+        var existingUser=userRepository.findById(id).orElse(new Users());
+        existingUser.setUsername(user.getUsername());
+        existingUser.setPassword(user.getPassword());
+        existingUser.setRole(user.getRole());
+        existingUser.setPhone(user.getPhone());
+        existingUser.setFullName(user.getFullName());
+        existingUser.setEmail(user.getEmail());
+        return userRepository.save(existingUser);
+    }
+
+    public void deleteUser(int id) {
+        userRepository.deleteById(id);
     }
 }

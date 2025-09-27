@@ -38,7 +38,7 @@ public class JWTService {
                 .claims()
                 .add(claims)
                 .subject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis()+1000*60*30))
                 .and()
                 .signWith(getKey())
@@ -46,8 +46,8 @@ public class JWTService {
     }
 
     private SecretKey getKey() {
-       byte[] keyBytes= Decoders.BASE64URL.decode(secretKey);
-       return Keys.hmacShaKeyFor(keyBytes);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     public String extractUserName(String token) {
