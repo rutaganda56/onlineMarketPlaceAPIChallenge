@@ -1,4 +1,9 @@
 package org.example.onlinemarketplaceapichallenge.Dto;
 
-public record CategoryDto() {
+import jakarta.validation.constraints.NotEmpty;
+
+public record CategoryDto(
+        @NotEmpty
+       String name
+) {
 }
