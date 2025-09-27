@@ -1,9 +1,6 @@
 package org.example.onlinemarketplaceapichallenge.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
@@ -21,6 +18,8 @@ public class Users {
     private String email;
     @Column(name = "phone_number")
     private String phone;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Store store;
 
     public String getFullName() {
         return fullName;

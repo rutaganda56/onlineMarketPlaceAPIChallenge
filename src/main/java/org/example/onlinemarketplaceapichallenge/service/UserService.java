@@ -7,6 +7,9 @@ import org.example.onlinemarketplaceapichallenge.mapper.UserMapper;
 import org.example.onlinemarketplaceapichallenge.model.Users;
 import org.example.onlinemarketplaceapichallenge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +22,8 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
     @Autowired
+    private AuthenticationManager authManager;
+    @Autowired
     private JWTService jwtService;
     @Autowired
     private UserMapper userMapper;
@@ -27,7 +32,11 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(12);
 
     public String login( Users user) {
-        return jwtService.generateToken(user.getUsername());
+        Authentication authentication=authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        if(authentication.isAuthenticated()) {
+            return jwtService.generateToken(user.getUsername());
+        }
+        return "failed to authenticate";
     }
     public UserResponseDto register( UserDto dto) {
         var user=userMapper.toUserDto(dto);
@@ -41,7 +50,7 @@ public class UserService {
     public Users updateUser(int id, Users user) {
         var existingUser=userRepository.findById(id).orElse(new Users());
         existingUser.setUsername(user.getUsername());
-        existingUser.setPassword(user.getPassword());
+        existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
         existingUser.setRole(user.getRole());
         existingUser.setPhone(user.getPhone());
         existingUser.setFullName(user.getFullName());
