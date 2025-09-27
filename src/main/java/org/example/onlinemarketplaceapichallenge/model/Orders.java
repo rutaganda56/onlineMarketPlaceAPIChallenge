@@ -6,12 +6,10 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue
     private int orderId;
@@ -29,7 +27,4 @@ public class Order {
     @JoinColumn(name = "product_id")
     @JsonBackReference
     private Product product;
-
-
-
 }

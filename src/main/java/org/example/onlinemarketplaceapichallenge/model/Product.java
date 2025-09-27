@@ -31,7 +31,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Order> order;
+    private List<Orders> order;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Review> review;

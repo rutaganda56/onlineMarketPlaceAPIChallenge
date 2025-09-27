@@ -27,7 +27,7 @@ public class Users {
     private Store store;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Order> order;
+    private List<Orders> order;
     @OneToMany(mappedBy = "user")
     private List<Review> review;
 
