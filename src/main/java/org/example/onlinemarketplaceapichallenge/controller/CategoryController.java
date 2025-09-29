@@ -28,8 +28,8 @@ public class CategoryController {
         return categoryService.createCategory(dto);
     }
     @PutMapping("/editCategory/{id}")
-    public Category updateCategory(@PathVariable("id") int id,@Valid @RequestBody Category category){
-        return categoryService.updateCategory(id, category);
+    public CategoryResponseDto updateCategory(@PathVariable("id") int id,@Valid @RequestBody CategoryDto categoryDto){
+        return categoryService.updateCategory(id, categoryDto);
     }
     @DeleteMapping("/deleteCategory/{id}")
     public void deleteCategory(@PathVariable("id") int id){

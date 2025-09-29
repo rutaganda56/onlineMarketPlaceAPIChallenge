@@ -2,6 +2,7 @@ package org.example.onlinemarketplaceapichallenge.mapper;
 
 import org.example.onlinemarketplaceapichallenge.dto.ProductDto;
 import org.example.onlinemarketplaceapichallenge.dto.ProductResponseDto;
+import org.example.onlinemarketplaceapichallenge.model.Category;
 import org.example.onlinemarketplaceapichallenge.model.Product;
 import org.example.onlinemarketplaceapichallenge.model.Store;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class ProductMapper {
         product.setStatus(dto.status());
         Store store = new Store();
         store.setStoreId(dto.storeId());
+        Category category = new Category();
+        category.setId(dto.categoryId());
+        product.setCategory(category);
         product.setStore(store);
         return product;
     }

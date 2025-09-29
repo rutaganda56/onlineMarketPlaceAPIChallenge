@@ -29,6 +29,10 @@ public class StoreController {
     public StoreResponseDto createStore(@Valid @RequestBody StoreDto storeDto) {
         return storeService.createStore(storeDto);
     }
+    @PutMapping("/updateStore/{id}")
+    public StoreResponseDto updateStore(@PathVariable int id, @Valid @RequestBody StoreDto storeDto) {
+        return storeService.updateStore(id,storeDto);
+    }
     @DeleteMapping("/deleteStore/{id}")
     public void deleteStore(@PathVariable("id") int id) {
         storeService.deleteStore(id);

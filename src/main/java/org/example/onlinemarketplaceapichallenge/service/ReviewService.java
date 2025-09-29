@@ -25,6 +25,11 @@ public class ReviewService {
     public List<ReviewResponseDto> getAllReviews() {
         return reviewRepo.findAll().stream().map(reviewMapper::transformToResponseDto).collect(Collectors.toList());
     }
+    public ReviewResponseDto updateReview(int id, ReviewDto reviewDto) {
+        var review = reviewRepo.findById(id).orElse(null);
+
+
+    }
     public void deleteReview(int reviewId) {
         reviewRepo.deleteById(reviewId);
     }

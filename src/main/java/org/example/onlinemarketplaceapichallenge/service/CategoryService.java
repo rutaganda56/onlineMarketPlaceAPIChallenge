@@ -25,10 +25,11 @@ public class CategoryService {
         var savedCategory=categoryRepo.save(category);
         return categoryMapper.transformToResponseDto(savedCategory);
     }
-    public Category updateCategory(int id, Category category) {
-        var existingUser=categoryRepo.findById(id);
-        category.setName(category.getName());
-        return categoryRepo.save(category);
+    public CategoryResponseDto updateCategory(int id, CategoryDto categoryDto) {
+        var existingUser=categoryRepo.findById(id).orElse(null);
+        existingUser.setName(categoryDto.name());
+        var savedUser= categoryRepo.save(existingUser);
+        return categoryMapper.transformToResponseDto(savedUser);
 
     }
     public void deleteCategory(int categoryId) {
