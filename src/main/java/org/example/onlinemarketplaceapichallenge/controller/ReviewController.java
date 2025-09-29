@@ -1,5 +1,6 @@
 package org.example.onlinemarketplaceapichallenge.controller;
 
+import jakarta.validation.Valid;
 import org.example.onlinemarketplaceapichallenge.dto.ReviewDto;
 import org.example.onlinemarketplaceapichallenge.dto.ReviewResponseDto;
 import org.example.onlinemarketplaceapichallenge.service.ReviewService;
@@ -27,6 +28,10 @@ public class ReviewController {
     @ResponseStatus(HttpStatus.CREATED)
     public ReviewResponseDto AddReview(@RequestBody ReviewDto reviewDto) {
         return reviewService.addReview(reviewDto);
+    }
+    @PutMapping("/updateReview/{id}")
+    public ReviewResponseDto updateReview(@PathVariable("id") int id,@Valid @RequestBody ReviewDto reviewDto) {
+        return reviewService.updateReview(id, reviewDto);
     }
     @DeleteMapping("/deleteReview/{id}")
     public void deleteReview(@PathVariable("id") int id) {
