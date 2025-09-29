@@ -1,7 +1,9 @@
 package org.example.onlinemarketplaceapichallenge.controller;
 
+import org.example.onlinemarketplaceapichallenge.dto.OrderResponseDto;
 import org.example.onlinemarketplaceapichallenge.dto.ProductDto;
 import org.example.onlinemarketplaceapichallenge.dto.ProductResponseDto;
+import org.example.onlinemarketplaceapichallenge.model.Product;
 import org.example.onlinemarketplaceapichallenge.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,10 @@ public class ProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProductResponseDto createProduct(@RequestBody ProductDto productDto) {
         return productService.createProduct(productDto);
+    }
+    @PutMapping("/updateProduct/{id}")
+    public ProductResponseDto updateProduct(@PathVariable("id") int id, @RequestBody ProductDto productDto) {
+        return productService.updateProduct(id,productDto);
     }
     @DeleteMapping("/deleteProduct/{id}")
     public void deleteProduct(@PathVariable("id") int id) {

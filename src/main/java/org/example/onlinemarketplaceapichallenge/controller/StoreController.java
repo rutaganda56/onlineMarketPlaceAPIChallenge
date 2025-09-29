@@ -33,7 +33,6 @@ public class StoreController {
     public void deleteStore(@PathVariable("id") int id) {
         storeService.deleteStore(id);
     }
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         var errors = new HashMap<String, String>();

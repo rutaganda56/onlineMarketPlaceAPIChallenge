@@ -45,15 +45,16 @@ public class UserService {
     public List<UserResponseDto> getAllUsers() {
         return userRepository.findAll().stream().map(userMapper::toUserResponseDto).collect(Collectors.toList());
     }
-    public Users updateUser(int id, Users user) {
+    public UserResponseDto updateUser(int id, UserDto userDto) {
         var existingUser=userRepository.findById(id).orElse(new Users());
-        existingUser.setUsername(user.getUsername());
-        existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        existingUser.setRole(user.getRole());
-        existingUser.setPhone(user.getPhone());
-        existingUser.setFullName(user.getFullName());
-        existingUser.setEmail(user.getEmail());
-        return userRepository.save(existingUser);
+        existingUser.setUsername(userDto.username());
+        existingUser.setPassword(passwordEncoder.encode(userDto.password()));
+        existingUser.setRole(userDto.role());
+        existingUser.setPhone(userDto.phone());
+        existingUser.setFullName(userDto.fullName());
+        existingUser.setEmail(userDto.email());
+        Users updatedUser=userRepository.save(existingUser);
+        return new UserResponseDto(updatedUser.getFullName());
     }
 
     public void deleteUser(int id) {

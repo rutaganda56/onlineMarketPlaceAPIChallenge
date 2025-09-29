@@ -26,12 +26,13 @@ public class ProductService {
         var savedProduct=productRepo.save(product);
         return productMapper.transformToResponseDto(savedProduct);
     }
-    public Product updateProduct(int id, Product product) {
+    public ProductResponseDto updateProduct(int id, ProductDto productDto) {
         var existingUser=productRepo.findById(id).orElse(new Product());
-        existingUser.setId(product.getId());
-        existingUser.setName(product.getName());
-        existingUser.setPrice(product.getPrice());
-        return productRepo.save(existingUser);
+        existingUser.setId(productDto.storeId());
+        existingUser.setName(productDto.name());
+        existingUser.setPrice(productDto.price());
+        var updatedProduct=productRepo.save(existingUser);
+        return new ProductResponseDto(updatedProduct.getName());
     }
     public void deleteProduct(int id) {
         productRepo.deleteById(id);

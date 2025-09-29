@@ -3,6 +3,7 @@ package org.example.onlinemarketplaceapichallenge.controller;
 import jakarta.validation.Valid;
 import org.example.onlinemarketplaceapichallenge.dto.CategoryDto;
 import org.example.onlinemarketplaceapichallenge.dto.CategoryResponseDto;
+import org.example.onlinemarketplaceapichallenge.model.Category;
 import org.example.onlinemarketplaceapichallenge.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,10 +27,15 @@ public class CategoryController {
     public CategoryResponseDto createCategory(@Valid @RequestBody CategoryDto dto){
         return categoryService.createCategory(dto);
     }
+    @PutMapping("/editCategory/{id}")
+    public Category updateCategory(@PathVariable("id") int id,@Valid @RequestBody Category category){
+        return categoryService.updateCategory(id, category);
+    }
     @DeleteMapping("/deleteCategory/{id}")
     public void deleteCategory(@PathVariable("id") int id){
         categoryService.deleteCategory(id);
     }
+
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){

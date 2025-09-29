@@ -3,6 +3,7 @@ package org.example.onlinemarketplaceapichallenge.service;
 import org.example.onlinemarketplaceapichallenge.dto.CategoryDto;
 import org.example.onlinemarketplaceapichallenge.dto.CategoryResponseDto;
 import org.example.onlinemarketplaceapichallenge.mapper.CategoryMapper;
+import org.example.onlinemarketplaceapichallenge.model.Category;
 import org.example.onlinemarketplaceapichallenge.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,12 @@ public class CategoryService {
         var category=categoryMapper.transformToDto(categoryDto);
         var savedCategory=categoryRepo.save(category);
         return categoryMapper.transformToResponseDto(savedCategory);
+    }
+    public Category updateCategory(int id, Category category) {
+        var existingUser=categoryRepo.findById(id);
+        category.setName(category.getName());
+        return categoryRepo.save(category);
+
     }
     public void deleteCategory(int categoryId) {
         categoryRepo.deleteById(categoryId);

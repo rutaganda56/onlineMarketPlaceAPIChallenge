@@ -3,6 +3,7 @@ package org.example.onlinemarketplaceapichallenge.service;
 import org.example.onlinemarketplaceapichallenge.dto.OrderDto;
 import org.example.onlinemarketplaceapichallenge.dto.OrderResponseDto;
 import org.example.onlinemarketplaceapichallenge.mapper.OrderMapper;
+import org.example.onlinemarketplaceapichallenge.model.Orders;
 import org.example.onlinemarketplaceapichallenge.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,14 @@ public class OrderService {
     }
 
 
+    public OrderResponseDto updateOrder(int id, OrderDto orderDto) {
+        var existingOrder=orderRepo.findById(id).orElse(new Orders());
+        existingOrder.setQuantity(orderDto.quantity());
+        existingOrder.setPrice(orderDto.price());
+        existingOrder.setShippingMethod(orderDto.shippingMethod());
+        existingOrder.setStatus(orderDto.status());
+        Orders updatedOrder=orderRepo.save(existingOrder);
+
+        return new OrderResponseDto(updatedOrder.getOrderId(), updatedOrder.getStatus());
+    }
 }

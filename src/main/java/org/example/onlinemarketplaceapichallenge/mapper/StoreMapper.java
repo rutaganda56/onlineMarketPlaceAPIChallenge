@@ -12,7 +12,7 @@ public class StoreMapper {
         Store store = new Store();
         store.setStoreName(dto.storeName());
         store.setStoreAddress(dto.storeAddress());
-        store.setContact(dto.Contact());
+        store.setContact(dto.contact());
         Users user = new Users();
         user.setId(dto.userId());
         store.setUser(user);

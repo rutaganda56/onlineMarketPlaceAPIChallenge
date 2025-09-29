@@ -35,8 +35,8 @@ public class UserController {
         return userService.getAllUsers();
     }
     @PutMapping("/manage_profile/{id}")
-    public Users updateProfile(@PathVariable("id") int id, @Valid @RequestBody Users users){
-        return userService.updateUser(id, users);
+    public UserResponseDto updateProfile(@PathVariable("id") int id, @Valid @RequestBody UserDto userDto){
+        return userService.updateUser(id, userDto);
     }
     @DeleteMapping("/delete_user/{id}")
     public void deleteUser(@PathVariable("id") int id) {
