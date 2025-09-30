@@ -44,12 +44,14 @@ You must have the following software installed on your system:
 The `docker-compose.yml` file handles building the application and setting up a PostgreSQL database instance, making the setup process seamless.
 
 #### 1. *Clone the repository*:
-
+```bash
    git clone https://github.com/rutaganda56/onlineMarketPlaceAPIChallenge
-   
    cd onlineMarketPlaceAPIChallenge
+```
 #### Build and Start Services:
+```bash
 docker-compose up --build -d
+```
 This command compiles the Spring Boot application, builds the image, and starts both the API and the PostgreSQL database in the background.
 
 ### Access the Application:
@@ -59,9 +61,13 @@ The API will be accessible at http://localhost:8080.
 Clone the repository (as above).
 Build the Project:
 ####  Run:
+```bash
 mvn clean install
+```
 #### Run the Spring Boot Application:
+```bash
 mvn spring-boot:run
+```
 ## 🔒 API Documentation and Usage
 Accessing Swagger UI
 Once the application is running, the full interactive documentation is available:
