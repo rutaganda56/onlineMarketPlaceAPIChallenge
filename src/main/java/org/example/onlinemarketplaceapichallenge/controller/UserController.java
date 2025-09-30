@@ -20,25 +20,25 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
+    @PostMapping("api/auth/login")
     public String login(@Valid @RequestBody Users user) {
         return userService.login(user);
     }
 
-    @PostMapping("/register")
+    @PostMapping("api/auth/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDto register(@Valid @RequestBody UserDto dto) {
         return userService.register(dto);
     }
-    @GetMapping("/fetchAllUsers")
+    @GetMapping("api/user/users")
     public List<UserResponseDto> getAllUsers() {
         return userService.getAllUsers();
     }
-    @PutMapping("/manage_profile/{id}")
+    @PutMapping("api/user/manage_profile/{id}")
     public UserResponseDto updateProfile(@PathVariable("id") int id, @Valid @RequestBody UserDto userDto){
         return userService.updateUser(id, userDto);
     }
-    @DeleteMapping("/delete_user/{id}")
+    @DeleteMapping("api/user/delete_user/{id}")
     public void deleteUser(@PathVariable("id") int id) {
          userService.deleteUser(id);
     }

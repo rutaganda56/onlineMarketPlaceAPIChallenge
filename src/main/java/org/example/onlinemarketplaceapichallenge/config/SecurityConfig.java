@@ -29,23 +29,23 @@ public class SecurityConfig {
         return http
                         .csrf(customizer-> customizer.disable())
                         .authorizeHttpRequests(request->request
-                        .requestMatchers("register","login","/v2/api-docs"
+                        .requestMatchers("api/auth/register","api/auth/login","/v2/api-docs"
 
-                               , "/v3/api-docs"
+                                , "/v3/api-docs"
 
-                               ,"/v3/api-docs/**",
+                                , "/v3/api-docs/**",
 
-                         "/swagger-resources",
+                                "/swagger-resources",
 
-                         "/swagger-resources/**",
+                                "/swagger-resources/**",
 
-                         "/configuration/ui",
+                                "/configuration/ui",
 
-                         "/configuration/security",
+                                "/configuration/security",
 
-                         "/swagger-ui/**",
+                                "/swagger-ui/**",
 
-                         "/webjars/**",
+                                "/webjars/**",
 
                          "/swagger-ui.html)")
                                 .permitAll().anyRequest().authenticated())

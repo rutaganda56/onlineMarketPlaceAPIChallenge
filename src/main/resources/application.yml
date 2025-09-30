@@ -1,22 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/marketplace_db
-    username: postgres
-    password: valentin04
-    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-    database: postgresql
-    properties:
-      hibernate:
-        format_sql: true
-
-  security:
-    user:
-      password: awesomity
-      name: awesomity
-  docker:
-    compose:
-      enabled: false
