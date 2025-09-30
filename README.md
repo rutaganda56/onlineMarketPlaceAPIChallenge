@@ -110,10 +110,10 @@ text
 Authorization: Bearer <Your JWT Token>
 Key Endpoints (Examples)
 Auth	POST	/api/auth/register	NONE
-Products	GET	/api/products	ANY (Public read)
-Products	POST	/api/v1/products/store/{storeId}	SELLER
-Orders	POST	/api/orders/place	BUYER
-Reviews	POST	/api/reviews/{productId}	BUYER
+Products	GET	/api/product/products	ANY (Public read)
+Products	POST	/api/product/createProduct	
+Orders	POST	/api/order/createOrder	BUYER
+Reviews	UPDATE	/api/review/{id}	BUYER
 
 ## 🚀 Deployment
 the api is going to be deployed on render.com very soon. thanks !!!!
