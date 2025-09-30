@@ -20,20 +20,20 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping("/getAllReviews")
+    @GetMapping("api/review/reviews")
     public List<ReviewResponseDto> getAllReviews() {
         return reviewService.getAllReviews();
     }
-    @PostMapping("/createReview")
+    @PostMapping("api/review/createReview")
     @ResponseStatus(HttpStatus.CREATED)
     public ReviewResponseDto AddReview(@RequestBody ReviewDto reviewDto) {
         return reviewService.addReview(reviewDto);
     }
-    @PutMapping("/updateReview/{id}")
+    @PutMapping("api/review/{id}")
     public ReviewResponseDto updateReview(@PathVariable("id") int id,@Valid @RequestBody ReviewDto reviewDto) {
         return reviewService.updateReview(id, reviewDto);
     }
-    @DeleteMapping("/deleteReview/{id}")
+    @DeleteMapping("api/review/deleteReview/{id}")
     public void deleteReview(@PathVariable("id") int id) {
         reviewService.deleteReview(id);
     }

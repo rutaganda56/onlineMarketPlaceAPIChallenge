@@ -20,20 +20,20 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/getProducts")
+    @GetMapping("api/product/products")
     public List<ProductResponseDto> getProducts() {
         return productService.getAllProducts();
     }
-    @PostMapping("/createProduct")
+    @PostMapping("api/product/createProduct")
     @ResponseStatus(HttpStatus.CREATED)
     public ProductResponseDto createProduct(@RequestBody ProductDto productDto) {
         return productService.createProduct(productDto);
     }
-    @PutMapping("/updateProduct/{id}")
+    @PutMapping("api/product/{id}")
     public ProductResponseDto updateProduct(@PathVariable("id") int id, @RequestBody ProductDto productDto) {
         return productService.updateProduct(id,productDto);
     }
-    @DeleteMapping("/deleteProduct/{id}")
+    @DeleteMapping("api/product/deleteProduct/{id}")
     public void deleteProduct(@PathVariable("id") int id) {
         productService.deleteProduct(id);
     }
