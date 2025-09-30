@@ -29,6 +29,16 @@ The system employs a relational structure to manage user interactions, inventory
 | Order | M:1 with User (Buyer) | Represents a historical transaction, enabling the review eligibility check |
 | Review | M:1 with User, M:1 with Product | User feedback on a product, validated against purchase history |
 
+# System Architecture: Spring Boot E-Commerce Marketplace
+
+## Entity Relationships & API Design
+
+The system features a relational database design with carefully crafted entity relationships that support complex business operations while maintaining data consistency.
+
+## Diagram
+![System design](https://github.com/user-attachments/assets/6a4eadd6-4adb-42f9-bdfa-caad6cc5fe7c)
+
+
 ## 🚀 Setup & Installation
 
 ### Prerequisites
@@ -72,7 +82,9 @@ mvn spring-boot:run
 Accessing Swagger UI
 Once the application is running, the full interactive documentation is available:
 
-🔗 Swagger UI URL: [http://localhost:/8080-ui.html](http://localhost:8080/swagger-ui/index.html#/)
+🔗 Swagger UI URL: [http://localhost:/8080-ui.html](http://localhost:8080/swagger-ui/index.html#/) (development)
+
+Soon it will be deployed on render.com
 
 Authentication Flow (JWT)
 All secure endpoints require authentication. Follow these steps to generate and use a token:
@@ -102,17 +114,10 @@ Products	GET	/api/products	ANY (Public read)
 Products	POST	/api/v1/products/store/{storeId}	SELLER
 Orders	POST	/api/orders/place	BUYER
 Reviews	POST	/api/reviews/{productId}	BUYER
-🧪 Running Tests
-The project includes comprehensive unit and integration tests to cover entity validation, service logic, and all custom business rules.
 
-Run all tests (requires Maven):
-mvn test
-## ➕ Additional Features
-Role-Based Access Control (RBAC): Access to management and restricted endpoints is controlled based on the ROLE_BUYER or ROLE_SELLER assigned to the user during registration.
+## 🚀 Deployment
+the api is going to be deployed on render.com very soon. thanks !!!!
 
-DTO Mapping: All data transfer operations utilize dedicated DTOs for clean separation between API contract and JPA entities.
-
-Add any other additional feature titles here, e.g., Product Filtering, Custom Search Logic, Email Notifications, etc.
 
 
 
