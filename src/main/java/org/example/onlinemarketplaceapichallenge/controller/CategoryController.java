@@ -19,19 +19,19 @@ import java.util.List;
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
-    @GetMapping("/getCategories")
+    @GetMapping("api/category/categories")
     public List<CategoryResponseDto> getCategories() {
         return categoryService.getCategories();
     }
-    @PostMapping("/createCategory")
+    @PostMapping("api/category/createCategory")
     public CategoryResponseDto createCategory(@Valid @RequestBody CategoryDto dto){
         return categoryService.createCategory(dto);
     }
-    @PutMapping("/editCategory/{id}")
+    @PutMapping("api/category/{id}")
     public CategoryResponseDto updateCategory(@PathVariable("id") int id,@Valid @RequestBody CategoryDto categoryDto){
         return categoryService.updateCategory(id, categoryDto);
     }
-    @DeleteMapping("/deleteCategory/{id}")
+    @DeleteMapping("api/category/deleteCategory/{id}")
     public void deleteCategory(@PathVariable("id") int id){
         categoryService.deleteCategory(id);
     }
